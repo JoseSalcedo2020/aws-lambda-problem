@@ -1,0 +1,18 @@
+service: serverless-tc-prueba
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  groups:
+    handler: src/handler.groups
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
+
+plugins:
+  - serverless-plugin-typescript
